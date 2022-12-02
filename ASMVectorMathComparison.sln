@@ -1,0 +1,80 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32519.379
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ASMVectorMathComparison", "ASMVectorMathComparison\ASMVectorMathComparison.vcxproj", "{B23D5A19-C409-43A8-871A-FBF27D1DF32E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6A9C8828-5DCC-4DEC-BDDA-D6EBA7EFD4AF} = {6A9C8828-5DCC-4DEC-BDDA-D6EBA7EFD4AF}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Vector3ASM", "Vector3ASM\Vector3ASM.vcxproj", "{6A9C8828-5DCC-4DEC-BDDA-D6EBA7EFD4AF}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Vector3", "Vector3\Vector3.vcxproj", "{29B0672E-7BC8-4876-83A7-45798D32AFA3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+		Vector3ASM|x64 = Vector3ASM|x64
+		Vector3ASM|x86 = Vector3ASM|x86
+		Vector3CPP|x64 = Vector3CPP|x64
+		Vector3CPP|x86 = Vector3CPP|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B23D5A19-C409-43A8-871A-FBF27D1DF32E}.Debug|x64.ActiveCfg = Debug|x64
+		{B23D5A19-C409-43A8-871A-FBF27D1DF32E}.Debug|x64.Build.0 = Debug|x64
+		{B23D5A19-C409-43A8-871A-FBF27D1DF32E}.Debug|x86.ActiveCfg = Debug|Win32
+		{B23D5A19-C409-43A8-871A-FBF27D1DF32E}.Debug|x86.Build.0 = Debug|Win32
+		{B23D5A19-C409-43A8-871A-FBF27D1DF32E}.Release|x64.ActiveCfg = Release|x64
+		{B23D5A19-C409-43A8-871A-FBF27D1DF32E}.Release|x64.Build.0 = Release|x64
+		{B23D5A19-C409-43A8-871A-FBF27D1DF32E}.Release|x86.ActiveCfg = Release|Win32
+		{B23D5A19-C409-43A8-871A-FBF27D1DF32E}.Release|x86.Build.0 = Release|Win32
+		{B23D5A19-C409-43A8-871A-FBF27D1DF32E}.Vector3ASM|x64.ActiveCfg = Vector3ASM|x64
+		{B23D5A19-C409-43A8-871A-FBF27D1DF32E}.Vector3ASM|x64.Build.0 = Vector3ASM|x64
+		{B23D5A19-C409-43A8-871A-FBF27D1DF32E}.Vector3ASM|x86.ActiveCfg = Vector3ASM|Win32
+		{B23D5A19-C409-43A8-871A-FBF27D1DF32E}.Vector3ASM|x86.Build.0 = Vector3ASM|Win32
+		{B23D5A19-C409-43A8-871A-FBF27D1DF32E}.Vector3CPP|x64.ActiveCfg = Vector3CPP|x64
+		{B23D5A19-C409-43A8-871A-FBF27D1DF32E}.Vector3CPP|x64.Build.0 = Vector3CPP|x64
+		{B23D5A19-C409-43A8-871A-FBF27D1DF32E}.Vector3CPP|x86.ActiveCfg = Vector3CPP|Win32
+		{B23D5A19-C409-43A8-871A-FBF27D1DF32E}.Vector3CPP|x86.Build.0 = Vector3CPP|Win32
+		{6A9C8828-5DCC-4DEC-BDDA-D6EBA7EFD4AF}.Debug|x64.ActiveCfg = Debug|x64
+		{6A9C8828-5DCC-4DEC-BDDA-D6EBA7EFD4AF}.Debug|x64.Build.0 = Debug|x64
+		{6A9C8828-5DCC-4DEC-BDDA-D6EBA7EFD4AF}.Debug|x86.ActiveCfg = Debug|Win32
+		{6A9C8828-5DCC-4DEC-BDDA-D6EBA7EFD4AF}.Debug|x86.Build.0 = Debug|Win32
+		{6A9C8828-5DCC-4DEC-BDDA-D6EBA7EFD4AF}.Release|x64.ActiveCfg = Release|x64
+		{6A9C8828-5DCC-4DEC-BDDA-D6EBA7EFD4AF}.Release|x64.Build.0 = Release|x64
+		{6A9C8828-5DCC-4DEC-BDDA-D6EBA7EFD4AF}.Release|x86.ActiveCfg = Release|Win32
+		{6A9C8828-5DCC-4DEC-BDDA-D6EBA7EFD4AF}.Release|x86.Build.0 = Release|Win32
+		{6A9C8828-5DCC-4DEC-BDDA-D6EBA7EFD4AF}.Vector3ASM|x64.ActiveCfg = Debug|x64
+		{6A9C8828-5DCC-4DEC-BDDA-D6EBA7EFD4AF}.Vector3ASM|x64.Build.0 = Debug|x64
+		{6A9C8828-5DCC-4DEC-BDDA-D6EBA7EFD4AF}.Vector3ASM|x86.ActiveCfg = Debug|Win32
+		{6A9C8828-5DCC-4DEC-BDDA-D6EBA7EFD4AF}.Vector3ASM|x86.Build.0 = Debug|Win32
+		{6A9C8828-5DCC-4DEC-BDDA-D6EBA7EFD4AF}.Vector3CPP|x64.ActiveCfg = Debug|x64
+		{6A9C8828-5DCC-4DEC-BDDA-D6EBA7EFD4AF}.Vector3CPP|x86.ActiveCfg = Debug|Win32
+		{6A9C8828-5DCC-4DEC-BDDA-D6EBA7EFD4AF}.Vector3CPP|x86.Build.0 = Debug|Win32
+		{29B0672E-7BC8-4876-83A7-45798D32AFA3}.Debug|x64.ActiveCfg = Debug|x64
+		{29B0672E-7BC8-4876-83A7-45798D32AFA3}.Debug|x64.Build.0 = Debug|x64
+		{29B0672E-7BC8-4876-83A7-45798D32AFA3}.Debug|x86.ActiveCfg = Debug|Win32
+		{29B0672E-7BC8-4876-83A7-45798D32AFA3}.Debug|x86.Build.0 = Debug|Win32
+		{29B0672E-7BC8-4876-83A7-45798D32AFA3}.Release|x64.ActiveCfg = Release|x64
+		{29B0672E-7BC8-4876-83A7-45798D32AFA3}.Release|x64.Build.0 = Release|x64
+		{29B0672E-7BC8-4876-83A7-45798D32AFA3}.Release|x86.ActiveCfg = Release|Win32
+		{29B0672E-7BC8-4876-83A7-45798D32AFA3}.Release|x86.Build.0 = Release|Win32
+		{29B0672E-7BC8-4876-83A7-45798D32AFA3}.Vector3ASM|x64.ActiveCfg = Debug|x64
+		{29B0672E-7BC8-4876-83A7-45798D32AFA3}.Vector3ASM|x86.ActiveCfg = Debug|Win32
+		{29B0672E-7BC8-4876-83A7-45798D32AFA3}.Vector3ASM|x86.Build.0 = Debug|Win32
+		{29B0672E-7BC8-4876-83A7-45798D32AFA3}.Vector3CPP|x64.ActiveCfg = Debug|x64
+		{29B0672E-7BC8-4876-83A7-45798D32AFA3}.Vector3CPP|x64.Build.0 = Debug|x64
+		{29B0672E-7BC8-4876-83A7-45798D32AFA3}.Vector3CPP|x86.ActiveCfg = Debug|Win32
+		{29B0672E-7BC8-4876-83A7-45798D32AFA3}.Vector3CPP|x86.Build.0 = Debug|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BC9A0A6E-E378-4644-BF81-01E0F861861E}
+	EndGlobalSection
+EndGlobal
