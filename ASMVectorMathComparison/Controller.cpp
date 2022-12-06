@@ -7,12 +7,21 @@
 
 #include <iostream>
 
+void PrintVector(Vector3 v)
+{
+	std::cout << v.x << ", " << v.y << ", " << v.z;
+}
+
 int main()
 {
 
-	V3Test();
+	Vector3 v1 = Vector3(1, 2, 3);
+	Vector3 v2 = Vector3(4, 5, 6);
 
-	std::cout << "Hello World" << std::endl;
+	std::cout << "v1: ";
+	PrintVector(v1);
+	std::cout << std::endl << "v2: ";
+	PrintVector(v2);
 
 	system("pause");
 
