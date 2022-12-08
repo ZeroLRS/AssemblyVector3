@@ -67,39 +67,31 @@ float Vector3::SqrDistance(Vector3& other)
 
 Vector3 Vector3::operator+(const Vector3& other)
 {
-	return Vector3(x + other.x, y + other.y, z + other.z);
+	Vector3 sum = Vector3();
+	_Add(v, other.v, sum.v);
+	return sum;
 }
 
 Vector3 Vector3::operator-(const Vector3& other)
 {
-	return Vector3(x - other.x, y - other.y, z - other.z);
+	Vector3 difference = Vector3();
+	_Subtract(v, other.v, difference.v);
+	return difference;
 }
 
 Vector3 Vector3::operator*(const float scalar)
 {
-	return Vector3(x * scalar, y * scalar, z * scalar);
+	Vector3 products = Vector3();
+	_MultiplyScalar(v, scalar, products.v);
+	return products;
 }
 
 bool Vector3::operator==(const Vector3& other)
 {
-	//if (x != other.x)
-	//	return false;
-	//if (y != other.y)
-	//	return false;
-	//if (z != other.z)
-	//	return false;
-	//return true;
 	return _Equals(v, other.v);
 }
 
 bool Vector3::operator!=(const Vector3& other)
 {
-	//if (x == other.x)
-	//	return false;
-	//if (y == other.y)
-	//	return false;
-	//if (z == other.z)
-	//	return false;
-	//return true;
 	return _NotEquals(v, other.v);
 }

@@ -49,7 +49,7 @@ lea rbp, [rsp + 20h]
 xor rax, rax
 movaps xmm0, XMMWORD PTR [rcx]
 movaps xmm1, xmm0
-mulps xmm0, xmm0							; vexp2ps apparently only works on zmm registers (AVX-512)
+mulps xmm0, xmm0
 haddps xmm0, xmm2							; horizontally add all the values together, using the empty xmm2 register as a dummy
 haddps xmm0, xmm2							; because there are four values, it must be done twice
 sqrtps xmm0, xmm0
@@ -68,7 +68,7 @@ lea rbp, [rsp + 20h]
 xor rax, rax
 movaps xmm0, XMMWORD PTR [rcx]
 movaps xmm1, xmm0
-mulps xmm0, xmm0							; vexp2ps apparently only works on zmm registers (AVX-512)
+mulps xmm0, xmm0
 haddps xmm0, xmm2							; horizontally add all the values together, using the empty xmm2 register as a dummy
 haddps xmm0, xmm2							; because there are four values, it must be done twice
 movq rax, xmm0
@@ -77,6 +77,57 @@ lea rsp, [rbp]
 pop rbp
 ret
 _SqrMagnitude ENDP
+
+_Add PROC
+push rbp
+sub rsp, 20h
+lea rbp, [rsp + 20h]
+
+xor rax, rax
+movaps xmm0, XMMWORD PTR [rcx]
+movaps xmm1, XMMWORD PTR [rdx]
+addps xmm0, xmm1
+
+movdqa XMMWORD PTR [r8], xmm0
+
+lea rsp, [rbp]
+pop rbp
+ret
+_Add ENDP
+
+_Subtract PROC
+push rbp
+sub rsp, 20h
+lea rbp, [rsp + 20h]
+
+xor rax, rax
+movaps xmm0, XMMWORD PTR [rcx]
+movaps xmm1, XMMWORD PTR [rdx]
+subps xmm0, xmm1
+
+movdqa XMMWORD PTR [r8], xmm0
+
+lea rsp, [rbp]
+pop rbp
+ret
+_Subtract ENDP
+
+_MultiplyScalar PROC
+push rbp
+sub rsp, 20h
+lea rbp, [rsp + 20h]
+
+xor rax, rax
+movaps xmm0, XMMWORD PTR [rcx]
+vbroadcastss xmm1, xmm1						; put the scalar value into all slots of xmm1
+mulps xmm0, xmm1
+
+movdqa XMMWORD PTR [r8], xmm0
+
+lea rsp, [rbp]
+pop rbp
+ret
+_MultiplyScalar ENDP
 
 _Equals PROC
 push rbp
