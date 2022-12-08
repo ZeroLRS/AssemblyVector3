@@ -43,5 +43,11 @@ public:
 	bool operator!=(const Vector3& other);
 };
 
-extern "C" void _Normalize(float* vec3);
 extern "C" void _Normal(float* vec3, float* dest);
+extern "C" void _Normalize(float* vec3);
+
+extern "C" float _Magnitude(float* vec3);
+extern "C" float _SqrMagnitude(float* vec3);
+
+extern "C" bool _Equals(float* selfV, const float* otherV);
+extern "C" bool _NotEquals(float* selfV, const float* otherV);

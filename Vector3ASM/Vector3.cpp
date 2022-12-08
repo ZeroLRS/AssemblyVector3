@@ -36,12 +36,12 @@ void Vector3::Normalize()
 
 float Vector3::Magnitude()
 {
-	return 0.0f;// sqrt(x * x + y * y + z * z);
+	return _Magnitude(v);
 }
 
 float Vector3::SqrMagnitude()
 {
-	return x * x + y * y + z * z;
+	return _SqrMagnitude(v);
 }
 
 Vector3 Vector3::Cross(Vector3& other)
@@ -82,22 +82,24 @@ Vector3 Vector3::operator*(const float scalar)
 
 bool Vector3::operator==(const Vector3& other)
 {
-	if (x != other.x)
-		return false;
-	if (y != other.y)
-		return false;
-	if (z != other.z)
-		return false;
-	return true;
+	//if (x != other.x)
+	//	return false;
+	//if (y != other.y)
+	//	return false;
+	//if (z != other.z)
+	//	return false;
+	//return true;
+	return _Equals(v, other.v);
 }
 
 bool Vector3::operator!=(const Vector3& other)
 {
-	if (x == other.x)
-		return false;
-	if (y == other.y)
-		return false;
-	if (z == other.z)
-		return false;
-	return true;
+	//if (x == other.x)
+	//	return false;
+	//if (y == other.y)
+	//	return false;
+	//if (z == other.z)
+	//	return false;
+	//return true;
+	return _NotEquals(v, other.v);
 }

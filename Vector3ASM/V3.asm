@@ -40,4 +40,72 @@ lea rsp, [rbp]
 pop rbp
 ret
 _Normalize ENDP
+
+_Magnitude PROC
+push rbp
+sub rsp, 20h
+lea rbp, [rsp + 20h]
+
+xor rax, rax
+movaps xmm0, XMMWORD PTR [rcx]
+movaps xmm1, xmm0
+mulps xmm0, xmm0							; vexp2ps apparently only works on zmm registers (AVX-512)
+haddps xmm0, xmm2							; horizontally add all the values together, using the empty xmm2 register as a dummy
+haddps xmm0, xmm2							; because there are four values, it must be done twice
+sqrtps xmm0, xmm0
+movq rax, xmm0
+
+lea rsp, [rbp]
+pop rbp
+ret
+_Magnitude ENDP
+
+_SqrMagnitude PROC
+push rbp
+sub rsp, 20h
+lea rbp, [rsp + 20h]
+
+xor rax, rax
+movaps xmm0, XMMWORD PTR [rcx]
+movaps xmm1, xmm0
+mulps xmm0, xmm0							; vexp2ps apparently only works on zmm registers (AVX-512)
+haddps xmm0, xmm2							; horizontally add all the values together, using the empty xmm2 register as a dummy
+haddps xmm0, xmm2							; because there are four values, it must be done twice
+movq rax, xmm0
+
+lea rsp, [rbp]
+pop rbp
+ret
+_SqrMagnitude ENDP
+
+_Equals PROC
+push rbp
+sub rsp, 20h
+lea rbp, [rsp + 20h]
+
+xor rax, rax
+
+cmp rcx, rdx
+setz al 
+
+lea rsp, [rbp]
+pop rbp
+ret
+_Equals ENDP
+
+_NotEquals PROC
+push rbp
+sub rsp, 20h
+lea rbp, [rsp + 20h]
+
+xor rax, rax
+
+cmp rcx, rdx
+setz al
+xor al, 1
+
+lea rsp, [rbp]
+pop rbp
+ret
+_NotEquals ENDP
 END	
