@@ -1,0 +1,21 @@
+These are the values you should get when running:
+
+v1: 1, 2, 3
+v2: 4, 5, 6
+0.267261, 0.534522, 0.801784
+0.455842, 0.569803, 0.683763
+
+v1: 1, 2, 3
+v2: 4, 5, 6
+
+Magnitude: 3.74166 SqrMagnitude: 14
+Distance: 5.19615 SqrDistance: 27
+Cross: -3, 6, -3 Dot: 32
+
++:5, 7, 9
+-:-3, -3, -3
+*:2, 4, 6
+
+v1 == v1: 1 v1 != v1: 0
+v1 == v2: 0 v1 != v2: 1
+Press any key to continue . . .

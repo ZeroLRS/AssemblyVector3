@@ -24,6 +24,11 @@
   <ItemGroup>
     <ClInclude Include="Vector3.h" />
   </ItemGroup>
+  <ItemGroup>
+    <MASM Include="V3.asm">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </MASM>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>

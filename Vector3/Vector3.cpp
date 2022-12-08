@@ -55,21 +55,21 @@ Vector3 Vector3::Cross(Vector3& other)
 {
 	Vector3 cross = Vector3(x, y, z);
 
-	cross.x = cross.y * other.z - cross.z * other.y;
-	cross.y = cross.z * other.x - cross.x * other.z;
-	cross.z = cross.x * other.y - cross.y * other.x;
+	cross.x = y * other.z - z * other.y;
+	cross.y = z * other.x - x * other.z;
+	cross.z = x * other.y - y * other.x;
 
 	return cross;
 }
 
 float Vector3::Distance(Vector3& other)
 {
-	return sqrt((other.x - x) * (other.x - x) + (other.y - y) * (other.y - y));
+	return sqrt((other.x - x) * (other.x - x) + (other.y - y) * (other.y - y) + (other.z - z) * (other.z - z));
 }
 
 float Vector3::SqrDistance(Vector3& other)
 {
-	return (other.x - x) * (other.x - x) + (other.y - y) * (other.y - y);
+	return (other.x - x) * (other.x - x) + (other.y - y) * (other.y - y) + (other.z - z) * (other.z - z);
 }
 
 Vector3 Vector3::operator+(const Vector3& other)
@@ -79,7 +79,7 @@ Vector3 Vector3::operator+(const Vector3& other)
 
 Vector3 Vector3::operator-(const Vector3& other)
 {
-	return Vector3(x + other.x, y + other.y, z + other.z);
+	return Vector3(x - other.x, y - other.y, z - other.z);
 }
 
 Vector3 Vector3::operator*(const float scalar)
