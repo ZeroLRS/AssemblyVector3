@@ -6,6 +6,7 @@
 #endif
 
 #include <iostream>
+#include <emmintrin.h>
 
 void PrintVector(Vector3 v)
 {

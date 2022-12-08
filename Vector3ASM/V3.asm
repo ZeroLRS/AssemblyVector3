@@ -78,6 +78,37 @@ pop rbp
 ret
 _SqrMagnitude ENDP
 
+; Lots of help from https://geometrian.com/programming/tutorials/cross-product/index.php
+_Cross PROC
+push rbp
+sub rsp, 20h
+lea rbp, [rsp + 20h]
+
+xor rax, rax
+movaps xmm0, XMMWORD PTR [rcx]
+movaps xmm1, XMMWORD PTR [rdx]
+movaps xmm2, xmm0
+movaps xmm3, xmm1
+
+shufps xmm2, xmm2, 201						; 201 = _MM_SHUFFLE(3, 0, 2, 1);
+shufps xmm3, xmm3, 210						; 210 = _MM_SHUFFLE(3, 1, 0, 2);
+
+movaps xmm4, xmm2
+
+mulps xmm2, xmm1
+mulps xmm4, xmm3
+
+shufps xmm2, xmm2, 201						; 201 = _MM_SHUFFLE(3, 0, 2, 1);
+
+subps xmm4, xmm2
+
+movdqa XMMWORD PTR [r8], xmm4
+
+lea rsp, [rbp]
+pop rbp
+ret
+_Cross ENDP
+
 _Add PROC
 push rbp
 sub rsp, 20h
