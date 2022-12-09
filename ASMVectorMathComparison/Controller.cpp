@@ -6,13 +6,14 @@
 #endif
 
 #include <iostream>
+#include <chrono>
 
 void PrintVector(Vector3 v)
 {
 	std::cout << v.x << ", " << v.y << ", " << v.z;
 }
 
-void TestAllFunctions()
+void TestAllFunctionsAndPrint()
 {
 	Vector3 v1 = Vector3(1, 2, 3);
 	Vector3 v2 = Vector3(4, 5, 6);
@@ -56,9 +57,47 @@ void TestAllFunctions()
 	std::cout << "v1 == v2: " << (v1 == v2) << " v1 != v2: " << (v1 != v2) << std::endl;
 }
 
+void TestAllFunctions()
+{
+	Vector3 v1 = Vector3(1, 2, 3);
+	Vector3 v2 = Vector3(4, 5, 6);
+
+	Vector3 v3 = v1.Normal();
+	Vector3 v4 = v2;
+
+	v4.Normalize();
+
+	v1.Magnitude();
+	v1.SqrMagnitude();
+
+	v1.Distance(v2);
+	v1.SqrDistance(v2);
+
+	v1.Cross(v2);
+	v1.Dot(v2);
+
+	v1 + v2;
+	v1 - v2;
+	v1 * 2;
+	v1 == v1;
+	v1 != v1;
+	v1 == v2;
+	v1 != v2;
+}
+
 int main()
 {
-	TestAllFunctions();
+	std::chrono::steady_clock::time_point start = std::chrono::high_resolution_clock::now();
+	
+
+	for (int i = 0; i < 10000000; i++)
+	{
+		TestAllFunctions();
+	}
+
+	std::chrono::steady_clock::time_point done = std::chrono::high_resolution_clock::now();
+
+	std::cout << std::endl << "Took: " << std::chrono::duration_cast<std::chrono::milliseconds>(done - start).count() << std::endl;
 
 	system("pause");
 
