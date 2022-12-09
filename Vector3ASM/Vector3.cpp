@@ -18,7 +18,7 @@ Vector3::Vector3()
 
 float Vector3::Dot(Vector3& other)
 {
-	return x * other.x + y * other.y + z * other.z;
+	return _Dot(v, other.v);
 }
 
 Vector3 Vector3::Normal()
@@ -46,14 +46,6 @@ float Vector3::SqrMagnitude()
 
 Vector3 Vector3::Cross(Vector3& other)
 {
-	//Vector3 cross = Vector3(x, y, z);
-	//
-	//cross.x = y * other.z - z * other.y;
-	//cross.y = z * other.x - x * other.z;
-	//cross.z = x * other.y - y * other.x;
-	//
-	//return cross;
-
 	Vector3 cross = Vector3();
 	_Cross(v, other.v, cross.v);
 	return cross;
@@ -61,12 +53,12 @@ Vector3 Vector3::Cross(Vector3& other)
 
 float Vector3::Distance(Vector3& other)
 {
-	return 0.0f;// sqrt((other.x - x) * (other.x - x) + (other.y - y) * (other.y - y) + (other.z - z) * (other.z - z));
+	return _Distance(v, other.v);
 }
 
 float Vector3::SqrDistance(Vector3& other)
 {
-	return (other.x - x) * (other.x - x) + (other.y - y) * (other.y - y) + (other.z - z) * (other.z - z);
+	return _SqrDistance(v, other.v);
 }
 
 Vector3 Vector3::operator+(const Vector3& other)

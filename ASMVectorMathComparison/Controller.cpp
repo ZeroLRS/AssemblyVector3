@@ -6,16 +6,14 @@
 #endif
 
 #include <iostream>
-#include <emmintrin.h>
 
 void PrintVector(Vector3 v)
 {
 	std::cout << v.x << ", " << v.y << ", " << v.z;
 }
 
-int main()
+void TestAllFunctions()
 {
-
 	Vector3 v1 = Vector3(1, 2, 3);
 	Vector3 v2 = Vector3(4, 5, 6);
 
@@ -23,7 +21,7 @@ int main()
 	PrintVector(v1);
 	std::cout << std::endl << "v2: ";
 	PrintVector(v2);
-	
+
 	Vector3 v3 = v1.Normal();
 	Vector3 v4 = v2;
 	v4.Normalize();
@@ -56,6 +54,11 @@ int main()
 	std::cout << std::endl;
 	std::cout << "v1 == v1: " << (v1 == v1) << " v1 != v1: " << (v1 != v1) << std::endl;
 	std::cout << "v1 == v2: " << (v1 == v2) << " v1 != v2: " << (v1 != v2) << std::endl;
+}
+
+int main()
+{
+	TestAllFunctions();
 
 	system("pause");
 

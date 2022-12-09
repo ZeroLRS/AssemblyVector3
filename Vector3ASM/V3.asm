@@ -1,4 +1,22 @@
 .CODE
+_Dot PROC
+push rbp
+sub rsp, 20h
+lea rbp, [rsp + 20h]
+
+xor rax, rax
+movaps xmm0, XMMWORD PTR [rcx]
+movaps xmm1, XMMWORD PTR [rdx]
+mulps xmm0, xmm1							; Multiply the values in each vector together
+haddps xmm0, xmm2							; horizontally add all the values together, using the empty xmm2 register as a dummy
+haddps xmm0, xmm2							; because there are four values, it must be done twice
+movq rax, xmm0
+
+lea rsp, [rbp]
+pop rbp
+ret
+_Dot ENDP
+
 _Normal PROC
 push rbp
 sub rsp, 20h
@@ -28,7 +46,7 @@ lea rbp, [rsp + 20h]
 xor rax, rax
 movaps xmm0, XMMWORD PTR [rcx]
 movaps xmm1, xmm0
-mulps xmm0, xmm0							; vexp2ps apparently only works on zmm registers (AVX-512)
+mulps xmm0, xmm0
 haddps xmm0, xmm2							; horizontally add all the values together, using the empty xmm2 register as a dummy
 haddps xmm0, xmm2							; because there are four values, it must be done twice
 sqrtps xmm0, xmm0
@@ -48,8 +66,7 @@ lea rbp, [rsp + 20h]
 
 xor rax, rax
 movaps xmm0, XMMWORD PTR [rcx]
-movaps xmm1, xmm0
-mulps xmm0, xmm0
+mulps xmm0, xmm0							; square the vector
 haddps xmm0, xmm2							; horizontally add all the values together, using the empty xmm2 register as a dummy
 haddps xmm0, xmm2							; because there are four values, it must be done twice
 sqrtps xmm0, xmm0
@@ -67,11 +84,9 @@ lea rbp, [rsp + 20h]
 
 xor rax, rax
 movaps xmm0, XMMWORD PTR [rcx]
-movaps xmm1, xmm0
-mulps xmm0, xmm0
+mulps xmm0, xmm0							; square the vector
 haddps xmm0, xmm2							; horizontally add all the values together, using the empty xmm2 register as a dummy
 haddps xmm0, xmm2							; because there are four values, it must be done twice
-movq rax, xmm0
 
 lea rsp, [rbp]
 pop rbp
@@ -126,6 +141,47 @@ pop rbp
 ret
 _Add ENDP
 
+_Distance PROC
+push rbp
+sub rsp, 20h
+lea rbp, [rsp + 20h]
+
+xor rax, rax
+movaps xmm0, XMMWORD PTR [rcx]
+movaps xmm1, XMMWORD PTR [rdx]
+
+subps xmm1, xmm0
+mulps xmm1, xmm1							; square all of the values
+haddps xmm1, xmm2							; horizontally add all the values together, using the empty xmm2 register as a dummy
+haddps xmm1, xmm2							; because there are four values, it must be done twice
+sqrtps xmm1, xmm1
+movaps xmm0, xmm1
+
+lea rsp, [rbp]
+pop rbp
+ret
+_Distance ENDP
+
+_SqrDistance PROC
+push rbp
+sub rsp, 20h
+lea rbp, [rsp + 20h]
+
+xor rax, rax
+movaps xmm0, XMMWORD PTR [rcx]
+movaps xmm1, XMMWORD PTR [rdx]
+
+subps xmm1, xmm0
+mulps xmm1, xmm1							; square all of the values
+haddps xmm1, xmm2							; horizontally add all the values together, using the empty xmm2 register as a dummy
+haddps xmm1, xmm2							; because there are four values, it must be done twice
+movaps xmm0, xmm1
+
+lea rsp, [rbp]
+pop rbp
+ret
+_SqrDistance ENDP
+
 _Subtract PROC
 push rbp
 sub rsp, 20h
@@ -166,9 +222,8 @@ sub rsp, 20h
 lea rbp, [rsp + 20h]
 
 xor rax, rax
-
 cmp rcx, rdx
-setz al 
+setz al										; set the return value to the result of the compare
 
 lea rsp, [rbp]
 pop rbp
@@ -181,10 +236,9 @@ sub rsp, 20h
 lea rbp, [rsp + 20h]
 
 xor rax, rax
-
 cmp rcx, rdx
-setz al
-xor al, 1
+setz al										; set the return value to the result of the compare
+xor al, 1									; invert the result
 
 lea rsp, [rbp]
 pop rbp

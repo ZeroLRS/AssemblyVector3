@@ -43,6 +43,8 @@ public:
 	bool operator!=(const Vector3& other);
 };
 
+extern "C" float _Dot(float* selfV, float* otherV);
+
 extern "C" void _Normal(float* vec3, float* dest);
 extern "C" void _Normalize(float* vec3);
 
@@ -51,6 +53,8 @@ extern "C" float _SqrMagnitude(float* vec3);
 
 extern "C" void _Cross(float* selfV, float* otherV, float* dest);
 
+extern "C" float _Distance(float* selfV, float* otherV);
+extern "C" float _SqrDistance(float* selfV, float* otherV);
 
 extern "C" bool _Add(float* selfV, const float* otherV, float* dest);
 extern "C" bool _Subtract(float* selfV, const float* otherV, float* dest);
